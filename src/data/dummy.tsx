@@ -23,7 +23,11 @@ import product6 from './product6.jpg';
 import product7 from './product7.jpg';
 import product8 from './product8.jpg';
 
-export const gridOrderImage = (props) => (
+type gridOrderImageTypes = {
+  ProductImage: string,
+}
+
+export const gridOrderImage = (props: gridOrderImageTypes) => (
   <div>
     <img
       className="rounded-xl h-20 md:ml-3"
@@ -33,7 +37,12 @@ export const gridOrderImage = (props) => (
   </div>
 );
 
-export const gridOrderStatus = (props) => (
+type gridOrderStatusTypes = {
+  StatusBg: string,
+  Status: string,
+}
+
+export const gridOrderStatus = (props: gridOrderStatusTypes) => (
   <button
     type="button"
     style={{ background: props.StatusBg }}
@@ -61,7 +70,13 @@ export const kanbanGrid = [
     keyField: 'Close',
     allowToggle: true },
 ];
-const gridEmployeeProfile = (props) => (
+
+type gridEmployeeProfileTypes = {
+  EmployeeImage: string,
+  Name: string,
+}
+
+const gridEmployeeProfile = (props: gridEmployeeProfileTypes) => (
   <div className="flex items-center gap-2">
     <img
       className="rounded-full w-10 h-10"
@@ -72,7 +87,11 @@ const gridEmployeeProfile = (props) => (
   </div>
 );
 
-const gridEmployeeCountry = (props) => (
+type gridEmployeeCountryTypes = {
+  Country: string,
+}
+
+const gridEmployeeCountry = (props: gridEmployeeCountryTypes) => (
   <div className="flex items-center justify-center gap-2">
     <GrLocation />
     <span>{props.Country}</span>
@@ -120,7 +139,14 @@ export const EditorData = () => (
     </h3>
   </div>
 );
-const customerGridImage = (props) => (
+
+type customerGridImageTypes = {
+  CustomerImage: string,
+  CustomerName: string,
+  CustomerEmail: string,
+}
+
+const customerGridImage = (props: customerGridImageTypes) => (
   <div className="image flex gap-4">
     <img
       className="rounded-full w-10 h-10"
@@ -134,7 +160,12 @@ const customerGridImage = (props) => (
   </div>
 );
 
-const customerGridStatus = (props) => (
+type customerGridStatusTypes = {
+  StatusBg: string,
+  Status: string,
+}
+
+const customerGridStatus = (props: customerGridStatusTypes) => (
   <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
     <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
     <p>{props.Status}</p>
