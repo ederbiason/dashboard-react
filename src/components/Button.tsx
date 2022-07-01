@@ -4,7 +4,7 @@ interface ButtonProps {
   bgColor: string;
   text: string;
   borderRadius: string;
-  size: string;
+  size?: string;
 }
 
 export default function Button({color, bgColor, borderRadius, text, size}: ButtonProps) {
