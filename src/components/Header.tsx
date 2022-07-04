@@ -1,7 +1,19 @@
 
 
-export default function Header() {
+type HeaderProps = {
+  title: string;
+  category: string;
+}
+
+export default function Header({title, category}: HeaderProps) {
   return (
-    <div>Header</div>
+    <div className="mb-10">
+      <p className="text-gray-400">
+        {category}
+      </p>
+      <p className="text-3xl font-extrabold tracking-tight text-slate-900">
+        {title}
+      </p>
+    </div>
   )
 }
