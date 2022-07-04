@@ -14,7 +14,7 @@ export default function Stacked({width, height}: StackedProps) {
       width={width}
       height={height}
       id="charts"
-      // primaryXAxis={stackedPrimaryXAxis}
+      primaryXAxis={stackedPrimaryXAxis}
       primaryYAxis={stackedPrimaryYAxis}
       chartArea={{border: {width: 0}}}
       tooltip={{enable: true}}
