@@ -1,5 +1,7 @@
 import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Category, StackingColumnSeries, Tooltip } from '@syncfusion/ej2-react-charts'
 
+import { useStateContext } from '../../contexts/ContextProvider';
+
 import { stackedCustomSeries, stackedPrimaryXAxis, stackedPrimaryYAxis} from '../../data/dummy'
 
 type StackedProps = {
@@ -8,7 +10,7 @@ type StackedProps = {
 }
 
 export default function Stacked({width, height}: StackedProps) {
-
+  const {currentMode} = useStateContext()
   return (
     <ChartComponent
       width={width}
@@ -19,6 +21,7 @@ export default function Stacked({width, height}: StackedProps) {
       chartArea={{border: {width: 0}}}
       tooltip={{enable: true}}
       legendSettings={{background: 'white'}}
+      background={currentMode === 'Dark' ? '#33373E' : '#fff'}
     >
       <Inject services={[Legend, Category, StackingColumnSeries, Tooltip]} />
       <SeriesCollectionDirective>

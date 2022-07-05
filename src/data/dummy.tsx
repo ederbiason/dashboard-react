@@ -22,7 +22,7 @@ import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
 import product8 from './product8.jpg';
-import { LabelIntersectAction, ValueType } from '@syncfusion/ej2-react-charts';
+import { ChartRangePadding, EdgeLabelPlacement, IntervalType, LabelIntersectAction, ValueType } from '@syncfusion/ej2-react-charts';
 
 type gridOrderImageTypes = {
   ProductImage: string,
@@ -417,7 +417,16 @@ export const FinancialPrimaryYAxis = {
   majorTickLines: { width: 0 },
 };
 
-export const LinePrimaryXAxis = {
+type LinePrimaryXAxisProps = {
+  valueType: ValueType,
+  labelFormat: string,
+  intervalType: IntervalType,
+  edgeLabelPlacement: EdgeLabelPlacement,
+  majorGridLines: { width: number },
+  background: string,
+}
+
+export const LinePrimaryXAxis: LinePrimaryXAxisProps = {
   valueType: 'DateTime',
   labelFormat: 'y',
   intervalType: 'Years',
@@ -426,7 +435,18 @@ export const LinePrimaryXAxis = {
   background: 'white',
 };
 
-export const LinePrimaryYAxis = {
+type LinePrimaryYAxisProps = {
+  labelFormat: string,
+  rangePadding: ChartRangePadding,
+  minimum: number,
+  maximum: number,
+  interval: number,
+  lineStyle: { width: number },
+  majorTickLines: { width: number },
+  minorTickLines: { width: number },
+}
+
+export const LinePrimaryYAxis: LinePrimaryYAxisProps = {
   labelFormat: '{value}%',
   rangePadding: 'None',
   minimum: 0,
