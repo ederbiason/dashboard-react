@@ -25,6 +25,19 @@ type StateContextType = {
 
     screenSize: number,
     setScreenSize: (newState: number) => void,
+
+    currentColor: string,
+    setCurrentColor: (newState: string) => void,
+
+    currentMode: string,
+    setCurrentMode: (newState: string) => void,
+
+    themeSettings: boolean,
+    setThemeSettings: (newState: boolean) => void,
+
+    setMode: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    
+    setColor: (color: string) => void,
 }
 
 const stateInicialValue = {
@@ -42,7 +55,20 @@ const stateInicialValue = {
     handleClick: () => {},
 
     screenSize: 0,
-    setScreenSize: () => {}
+    setScreenSize: () => {},
+
+    currentColor: '#03C9D7',
+    setCurrentColor: () => {},
+
+    currentMode: 'Light',
+    setCurrentMode: () => {},
+
+    themeSettings: false,
+    setThemeSettings: () => {},
+
+    setColor: () => {},
+
+    setMode: () => {},
 }
 
 const StateContext = createContext<StateContextType>(stateInicialValue);
@@ -58,6 +84,25 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
     const [activeMenu, setActiveMenu] = useState(true)
     const [isClicked, setIsClicked] = useState(initialState)
     const [screenSize, setScreenSize] = useState(0)
+    const [currentColor, setCurrentColor] = useState('#03C9D7')
+    const [currentMode, setCurrentMode] = useState('Light')
+    const [themeSettings, setThemeSettings] = useState(false)
+
+    const setMode = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setCurrentMode(e.target.value)
+
+        localStorage.setItem('themeMode', e.target.value)
+
+        setThemeSettings(false)
+    }
+
+    const setColor = (color: string) => {
+        setCurrentColor(color)
+
+        localStorage.setItem('colorMode', color)
+
+        setThemeSettings(false)
+    }
 
     const handleClick = (clicked: string) => {
         setIsClicked({...initialState, [clicked]: true})
@@ -66,13 +111,14 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
     return(
         <StateContext.Provider
             value={{
-                activeMenu,
-                setActiveMenu,
-                isClicked,
-                setIsClicked,
+                activeMenu, setActiveMenu,
+                isClicked, setIsClicked,
                 handleClick,
-                screenSize, 
-                setScreenSize
+                screenSize, setScreenSize,
+                currentColor, setCurrentColor,
+                currentMode, setCurrentMode,
+                themeSettings, setThemeSettings,
+                setMode, setColor
             }}
         >
             {children}
