@@ -11,7 +11,7 @@ import { useStateContext } from './contexts/ContextProvider'
 import './styles/App.css'
 
 function App() {
-  const { activeMenu, setThemeSettings, themeSettings } = useStateContext();
+  const { activeMenu, setThemeSettings, themeSettings, currentColor } = useStateContext();
 
   return (
     <div>
@@ -22,7 +22,7 @@ function App() {
               <button
                 type="button"
                 className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white rounded-full"
-                style={{ background: 'blue' }}
+                style={{ background: currentColor }}
                 onClick={() => setThemeSettings(true)}
               >
                 <FiSettings />
