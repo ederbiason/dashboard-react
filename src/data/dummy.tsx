@@ -180,7 +180,17 @@ const customerGridStatus = (props: customerGridStatusTypes) => (
     <p>{props.Status}</p>
   </div>
 );
-export const areaPrimaryXAxis = {
+
+type areaPrimaryXAxisProps = {
+  valueType: ValueType,
+  labelFormat: string,
+  majorGridLines: { width: number },
+  intervalType: IntervalType,
+  edgeLabelPlacement: EdgeLabelPlacement,
+  labelStyle: { color: string },
+}
+
+export const areaPrimaryXAxis: areaPrimaryXAxisProps = {
   valueType: 'DateTime',
   labelFormat: 'y',
   majorGridLines: { width: 0 },
