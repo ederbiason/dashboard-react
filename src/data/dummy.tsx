@@ -209,7 +209,14 @@ export const areaPrimaryYAxis = {
   labelStyle: { color: 'gray' },
 
 };
-export const barPrimaryXAxis = {
+
+type BarPrimaryXAxisProps = {
+  valueType:  ValueType,
+  interval: number,
+  majorGridLines: { width: number },
+}
+
+export const barPrimaryXAxis: BarPrimaryXAxisProps = {
   valueType: 'Category',
   interval: 1,
   majorGridLines: { width: 0 },
