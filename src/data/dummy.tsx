@@ -22,7 +22,7 @@ import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
 import product8 from './product8.jpg';
-import { ChartRangePadding, EdgeLabelPlacement, IntervalType, LabelIntersectAction, ValueType } from '@syncfusion/ej2-react-charts';
+import { ChartRangePadding, EdgeLabelPlacement, IntervalType, LabelIntersectAction, RangeColorSettingModel, ValueType } from '@syncfusion/ej2-react-charts';
 
 type gridOrderImageTypes = {
   ProductImage: string,
@@ -379,7 +379,37 @@ export const colorMappingData = [
   ['#FF4040'],
 ];
 
-export const rangeColorMapping = [
+type RangeColorMappingProps = [
+  {
+    label: string,
+    start: string,
+    end: string,
+    colors: string[] | {
+      x: string;
+      y: number;
+    }[]
+  },
+  {
+    label: string,
+    start: string,
+    end: string,
+    colors: string[] | {
+      x: string;
+      y: number;
+    }[]
+  },
+  {
+    label: string,
+    start: string,
+    end: string,
+    colors: string[] | {
+      x: string;
+      y: number;
+    }[]
+  }
+]
+
+export const rangeColorMapping: RangeColorMappingProps = [
   {
     label: '1°C to 10°C',
     start: '1',
@@ -403,7 +433,13 @@ export const rangeColorMapping = [
 
 ];
 
-export const ColorMappingPrimaryXAxis = {
+type ColorMappingPrimaryXAxisProps = {
+  valueType: ValueType,
+  majorGridLines: { width: number },
+  title: string,
+}
+
+export const ColorMappingPrimaryXAxis: ColorMappingPrimaryXAxisProps = {
   valueType: 'Category',
   majorGridLines: { width: 0 },
   title: 'Months',
