@@ -38,6 +38,13 @@ type StateContextType = {
     setMode: (e: React.ChangeEvent<HTMLInputElement>) => void,
     
     setColor: (color: string) => void,
+
+    initialState: {
+        chat: boolean,
+        cart: boolean,
+        userProfile: boolean,
+        notification: boolean,
+    }
 }
 
 const stateInicialValue = {
@@ -69,11 +76,25 @@ const stateInicialValue = {
     setColor: () => {},
 
     setMode: () => {},
+
+    initialState: {
+        chat: false,
+        cart: false,
+        userProfile: false,
+        notification: false
+    }
 }
 
 const StateContext = createContext<StateContextType>(stateInicialValue);
 
-const initialState = {
+type InitialStateProps = {
+    chat: boolean,
+    cart: boolean,
+    userProfile: boolean,
+    notification: boolean,
+}
+
+export const initialState: InitialStateProps = {
     chat: false,
     cart: false,
     userProfile: false,
@@ -118,7 +139,8 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
                 currentColor, setCurrentColor,
                 currentMode, setCurrentMode,
                 themeSettings, setThemeSettings,
-                setMode, setColor
+                setMode, setColor,
+                initialState
             }}
         >
             {children}
