@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { useStateContext } from '../contexts/ContextProvider';
 
 interface ButtonProps {
   color: string;
@@ -12,9 +13,12 @@ interface ButtonProps {
 }
 
 export default function Button({color, icon, bgColor, borderRadius, text, size, bgHoverColor, width}: ButtonProps) {
+  const { setIsClicked, initialState } = useStateContext();
+
   return (
     <button 
-      type="button" 
+      type="button"
+      onClick={() => setIsClicked(initialState)}
       style={{backgroundColor: bgColor, color: color, borderRadius}}
       className={`text-${size} p-3 w-${width} hover:drop-shadow-xl hover:bg-${bgHoverColor}`}
     >
